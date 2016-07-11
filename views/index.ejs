@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Facebook Login</title>
+<link rel="stylesheet" href="../stylesheets/style.css" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+
+<body class="login" ng-app="loginAngular">
+<!-- header starts here -->
+<div id="facebook-Bar">
+  <div id="facebook-Frame">
+    <div id="logo"> <a href="localhost:3000">Facebook</a> </div>
+    
+         
+        <div id="header-main-right">
+          <div id="header-main-right-nav">
+        <form id="login_form" name="login_form" ng-controller="loginController">
+          <table border="0" style="border:none">
+            <tr>
+              <td ><input type="text" tabindex="1"  id="email" placeholder="Paste URL" name="email" class="inputtext radius1" value="" ng-model="loginEmail"></td>
+              
+              <td ><button class="fbbutton" name="login" ng-click="shortenURL()">Shortening URL</button></td>
+            </tr>
+          </table>
+        </form>
+      </div>
+          </div>
+      </div>
+</div>
+<!-- header ends here -->
+      
+
+<script>
+  
+  	<!--Controller for Login Info-->
+  	
+  	var login = angular.module('loginAngular', []);
+  	
+  	login.config(['$httpProvider', function ($httpProvider) {
+   	$httpProvider.defaults.headers.common = {
+       'Content-Type': 'application/json'
+     };
+	}]);
+  	
+  	login.controller('loginController', ['$scope', '$http',
+	function($scope, $http){
+		
+		$scope.shortenURL = function() {
+			
+			alert("In Function");
+			$http.post('http://awseb-e-3-AWSEBLoa-EKSFQME2PGO3-419917081.us-west-2.elb.amazonaws.com:80', {name: "user"}).success(function(response) {
+				alert("Success");
+				alert(response);
+				
+		});
+    	}
+	}]);
+  		
+</script>
+
+</body>
+
+</html>
