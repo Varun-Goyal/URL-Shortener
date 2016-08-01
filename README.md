@@ -12,6 +12,6 @@ Developed URL Shortening Service like Bitly where user can submit a long URL and
 Technologies:
 
 Front-End: HTML5, CSS3, Bootstrap, Angular.js
-Server-End: Node.js
+Back-End: Node.js
 DB: MySQL, MongoDB, Redis
 Cloud: AWS Elastic Beanstalk, AWS SQS, Cloud9, Heroku
